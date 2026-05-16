@@ -1,0 +1,306 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const courses = [
+  {
+    code: "ISE 433",
+    title: "Human Factors Engineering",
+    level: "Undergraduate",
+    desc: "An introduction to human factors engineering principles and their application in the design of systems, products, and work environments. Topics include human performance, cognitive ergonomics, workspace design, displays and controls, and human error analysis.",
+    semester: "Fall",
+  },
+  {
+    code: "ISE 534",
+    title: "Advanced Human Factors",
+    level: "Graduate",
+    desc: "Advanced topics in human factors and ergonomics with emphasis on cognitive systems engineering, human-automation interaction, and contemporary methods for human factors analysis and system design.",
+    semester: "Spring",
+  },
+  {
+    code: "ISE 350",
+    title: "Industrial Safety Engineering",
+    level: "Undergraduate",
+    desc: "Principles of occupational safety and health engineering. Topics include hazard identification, risk assessment, safety program management, and the application of safety standards in industrial settings.",
+    semester: "Fall",
+  },
+  {
+    code: "ISE 635",
+    title: "Human-AI Teaming",
+    level: "Graduate",
+    desc: "A graduate seminar examining the science and engineering of human-AI teaming. Topics include trust in AI systems, shared mental models, adaptive autonomy, information sharing, and the design of effective human-AI collaborative systems.",
+    semester: "Spring",
+  },
+];
+
+const philosophy = [
+  {
+    icon: "🎯",
+    title: "Evidence-Based",
+    desc: "I teach through the lens of empirical research — grounding concepts in data, experimental findings, and real-world case studies.",
+  },
+  {
+    icon: "🤝",
+    title: "Active Learning",
+    desc: "Lectures are complemented by design exercises, lab activities, and collaborative projects that develop hands-on engineering skills.",
+  },
+  {
+    icon: "🔗",
+    title: "Research-Connected",
+    desc: "Students in my courses engage with cutting-edge research in human factors and AI, often connecting coursework to ongoing lab projects.",
+  },
+  {
+    icon: "🌍",
+    title: "Application-Focused",
+    desc: "I emphasize practical application — preparing students to apply human factors principles in industry, government, and research careers.",
+  },
+];
+---
+
+<Layout title="Teaching" description="Teaching by Dr. Beau G. Schelble — human factors, industrial safety, and human-AI teaming courses at UTK.">
+  <!-- ── Page hero ── -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-label">Teaching</p>
+      <h1 class="section-title">Courses &amp; Teaching</h1>
+      <p class="section-desc">
+        I teach undergraduate and graduate courses in human factors engineering, industrial safety,
+        and human-AI teaming at the University of Tennessee, Knoxville.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Courses ── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Courses</p>
+      <h2 class="section-title">Current Courses</h2>
+      <p class="section-desc" style="margin-bottom:2.5rem;">
+        Courses offered through the Department of Industrial &amp; Systems Engineering, Tickle College of Engineering.
+      </p>
+      <div class="course-list">
+        {courses.map(course => (
+          <div class="card course-card">
+            <div class="course-header">
+              <div>
+                <div class="course-meta">
+                  <span class="course-code">{course.code}</span>
+                  <span class={`course-level ${course.level === "Graduate" ? "grad" : "undergrad"}`}>
+                    {course.level}
+                  </span>
+                  <span class="course-semester">{course.semester}</span>
+                </div>
+                <h3 class="course-title">{course.title}</h3>
+              </div>
+            </div>
+            <p class="course-desc">{course.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="course-note">
+        Course offerings may vary by semester. Contact me at
+        <a href="mailto:bschelbl@utk.edu">bschelbl@utk.edu</a> for current information.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Philosophy ── -->
+  <section class="section" style="background:var(--light); padding-top:4rem; padding-bottom:4rem;">
+    <div class="container">
+      <p class="section-label">Teaching Philosophy</p>
+      <h2 class="section-title">How I Teach</h2>
+      <p class="section-desc" style="margin-bottom:2.5rem;">
+        My teaching connects rigorous theory to practical application, preparing students to
+        design safer and more effective human-centered systems.
+      </p>
+      <div class="philosophy-grid">
+        {philosophy.map(p => (
+          <div class="phil-card">
+            <span class="phil-icon">{p.icon}</span>
+            <h3 class="phil-title">{p.title}</h3>
+            <p class="phil-desc">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Prospective students ── -->
+  <section class="section-dark">
+    <div class="container">
+      <p class="section-label">Graduate Students</p>
+      <h2 class="section-title">Prospective Ph.D. Students</h2>
+      <p class="section-desc" style="margin-bottom:2rem;">
+        I am actively recruiting motivated Ph.D. students interested in human-AI teaming,
+        trust, and collaborative systems engineering. Ideal candidates have backgrounds in
+        industrial engineering, computer science, psychology, or related fields.
+      </p>
+      <div class="admit-criteria">
+        <div class="criterion">
+          <span class="criterion-check">✓</span>
+          <p>Strong quantitative and/or qualitative research skills</p>
+        </div>
+        <div class="criterion">
+          <span class="criterion-check">✓</span>
+          <p>Interest in human factors, HCI, or AI systems</p>
+        </div>
+        <div class="criterion">
+          <span class="criterion-check">✓</span>
+          <p>Enthusiasm for interdisciplinary research</p>
+        </div>
+        <div class="criterion">
+          <span class="criterion-check">✓</span>
+          <p>Desire to publish in top venues and contribute to the field</p>
+        </div>
+      </div>
+      <div style="margin-top:2rem;">
+        <a href={`${base}/contact`} class="btn btn-primary">Reach Out →</a>
+        <a href="https://arcslab.io" target="_blank" rel="noopener" class="btn btn-outline-white" style="margin-left:1rem;">ARCS Lab ↗</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 4rem 0 3rem;
+    background: var(--light);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Courses */
+  .course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .course-card { padding: 1.75rem 2rem; }
+
+  .course-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+  }
+
+  .course-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .course-code {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .course-level {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  .course-level.undergrad { background: #e0f2fe; color: #0369a1; }
+  .course-level.grad { background: #ede9fe; color: #7c3aed; }
+
+  .course-semester {
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .course-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.3;
+  }
+
+  .course-desc {
+    font-size: 0.9rem;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+
+  .course-note {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .course-note a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  /* Philosophy */
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .phil-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+  }
+
+  .phil-icon { font-size: 1.5rem; display: block; margin-bottom: 0.75rem; }
+
+  .phil-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .phil-desc {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* Prospective students */
+  .admit-criteria {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .criterion {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .criterion-check {
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .criterion p {
+    font-size: 0.925rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .philosophy-grid { grid-template-columns: 1fr; }
+  }
+</style>

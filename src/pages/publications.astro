@@ -1,0 +1,303 @@
+---
+import Layout from "../layouts/Layout.astro";
+import allPubs from "../data/publications.json";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const sorted = [...allPubs].sort((a, b) => b.year - a.year);
+const years = [...new Set(sorted.map(p => p.year))];
+
+const totalCount = 35; // actual total including unpublished/in progress
+const awardCount = sorted.filter(p => p.tags.some(t => t.toLowerCase().includes("award"))).length;
+---
+
+<Layout title="Publications" description="Publications by Dr. Beau G. Schelble on human-AI teaming, trust, and collaborative systems.">
+  <!-- ── Page hero ── -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-label">Publications</p>
+      <h1 class="section-title">Published Research</h1>
+      <p class="section-desc">
+        Peer-reviewed publications in human factors, HCI, IEEE, and ACM venues. Research on
+        human-AI teaming, trust calibration, team cognition, and collaborative systems.
+      </p>
+      <div class="pub-stats">
+        <div class="pub-stat">
+          <span class="pub-stat-val">{totalCount}+</span>
+          <span class="pub-stat-label">Total Publications</span>
+        </div>
+        <div class="pub-stat">
+          <span class="pub-stat-val">5</span>
+          <span class="pub-stat-label">Best Paper Awards</span>
+        </div>
+        <div class="pub-stat">
+          <span class="pub-stat-val">HFES · ACM · IEEE</span>
+          <span class="pub-stat-label">Primary Venues</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Filter note ── -->
+  <section class="section">
+    <div class="container">
+      <div class="filter-bar">
+        <div class="filter-note">
+          <span class="legend-dot journal"></span> Journal
+          <span class="legend-dot conference"></span> Conference
+          <span class="legend-award">★</span> Award / Nomination
+        </div>
+        <a href="https://scholar.google.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+          Google Scholar ↗
+        </a>
+      </div>
+
+      {years.map(year => {
+        const pubs = sorted.filter(p => p.year === year);
+        return (
+          <div class="year-group">
+            <h2 class="year-heading">{year}</h2>
+            <div class="pub-list">
+              {pubs.map(pub => (
+                <div class="pub-item">
+                  <div class="pub-left">
+                    <span class={`pub-type-dot ${pub.type}`}></span>
+                  </div>
+                  <div class="pub-body">
+                    <p class="pub-title">{pub.title}</p>
+                    <p class="pub-authors">{pub.authors}</p>
+                    <div class="pub-meta">
+                      <span class="pub-venue">{pub.venue}</span>
+                      <span class="pub-year-badge">{pub.year}</span>
+                      <span class={`pub-type-badge ${pub.type}`}>
+                        {pub.type === "journal" ? "Journal" : "Conference"}
+                      </span>
+                      {pub.tags.map(tag => (
+                        <span class="pub-award-badge">★ {tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+
+      <p class="pub-note">
+        This list includes selected publications. For a complete list, visit
+        <a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a>.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 4rem 0 3rem;
+    background: var(--light);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pub-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .pub-stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pub-stat-val {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--orange);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .pub-stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+
+  /* Filter bar */
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .filter-note {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .legend-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 0.35rem;
+  }
+
+  .legend-dot.journal { background: var(--orange); }
+  .legend-dot.conference { background: #6366f1; }
+
+  .legend-award {
+    color: #d97706;
+    margin-right: 0.2rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-sm { padding: 0.4rem 0.875rem; font-size: 0.8rem; }
+
+  /* Year groups */
+  .year-group { margin-bottom: 3rem; }
+
+  .year-heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--orange);
+    display: inline-block;
+    padding-right: 1rem;
+  }
+
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .pub-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pub-left {
+    padding-top: 0.375rem;
+    flex-shrink: 0;
+  }
+
+  .pub-type-dot {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .pub-type-dot.journal { background: var(--orange); }
+  .pub-type-dot.conference { background: #6366f1; }
+
+  .pub-body { flex: 1; }
+
+  .pub-title {
+    font-size: 0.975rem;
+    font-weight: 600;
+    color: var(--dark);
+    line-height: 1.5;
+    margin-bottom: 0.35rem;
+  }
+
+  .pub-authors {
+    font-size: 0.825rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .pub-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pub-venue {
+    font-size: 0.8rem;
+    color: var(--mid);
+    font-style: italic;
+  }
+
+  .pub-year-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--muted);
+    background: var(--light);
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  .pub-type-badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+  }
+
+  .pub-type-badge.journal {
+    background: var(--orange-bg);
+    color: var(--orange-dark);
+  }
+
+  .pub-type-badge.conference {
+    background: #eef2ff;
+    color: #4338ca;
+  }
+
+  .pub-award-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    background: #fef9c3;
+    color: #92400e;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+  }
+
+  .pub-note {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .pub-note a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .pub-note a:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    .pub-stats { gap: 1.5rem; }
+    .filter-bar { flex-direction: column; align-items: flex-start; }
+  }
+</style>

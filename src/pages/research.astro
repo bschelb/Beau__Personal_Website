@@ -1,0 +1,395 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const areas = [
+  {
+    num: "01",
+    title: "Intelligent Information Sharing",
+    summary: "Modeling how AI teammates should communicate information within human-AI teams.",
+    desc: `How should AI teammates decide what information to share, when to share it, and in what format?
+    This research stream investigates information-sharing strategies across different team roles, task contexts,
+    and trust conditions. I develop and test computational models of perceived information need to improve
+    AI teammate utility and drive shared situational awareness within the team.`,
+    keywords: ["Team Cognition", "Situational Awareness", "AI Communication", "Workload"],
+  },
+  {
+    num: "02",
+    title: "Trustworthy AI",
+    summary: "Designing AI systems that calibrate trust, support repair, and integrate ethical norms.",
+    desc: `Trust is foundational to effective human-AI collaboration. My work examines the antecedents and
+    consequences of trust in AI teammates, strategies for appropriate trust calibration, and mechanisms
+    for trust repair following violations. I also investigate how AI systems can embody ethical principles
+    and how those ethical dimensions influence human acceptance and team performance.`,
+    keywords: ["Trust Calibration", "Trust Repair", "AI Ethics", "Transparency"],
+  },
+  {
+    num: "03",
+    title: "Shared Mental Models",
+    summary: "How humans and AI develop and leverage shared knowledge structures for coordination.",
+    desc: `Effective teamwork depends on team members sharing compatible mental models of the task,
+    teammates, and situation. This research investigates how shared mental models form in human-AI teams,
+    how AI agent behavior shapes these representations, and how team cognition can be engineered through
+    careful AI design to enhance coordinated performance.`,
+    keywords: ["Team Cognition", "Coordination", "Mental Models", "Collaboration"],
+  },
+  {
+    num: "04",
+    title: "Situational Awareness",
+    summary: "Understanding how AI presentation and spatial context shape human perception and cognition.",
+    desc: `How team members perceive their environment, teammates, and unfolding events is critical for
+    adaptive performance. I examine how AI teammate presentation (anthropomorphism, role, framing),
+    spatial information, and teammate composition influence human situational awareness, cognitive load,
+    and decision-making across applied settings.`,
+    keywords: ["Perception", "Cognition", "Anthropomorphism", "Decision-Making"],
+  },
+  {
+    num: "05",
+    title: "Applied Human-AI Teaming",
+    summary: "Translating teaming science to manufacturing, cybersecurity, defense, and emergency response.",
+    desc: `Basic science must connect to real-world impact. I work to translate human-AI teaming principles
+    into practice across multiple high-stakes domains: manufacturing quality assurance, cyber threat
+    hunting, emergency response coordination, and military command and control. Each domain presents
+    unique human factors challenges that advance the broader science.`,
+    keywords: ["Manufacturing", "Cybersecurity", "Defense", "Emergency Response"],
+  },
+  {
+    num: "06",
+    title: "Evaluation & Validation",
+    summary: "Developing rigorous empirical methods to measure human-AI team performance and trust.",
+    desc: `Advancing the science requires robust experimental paradigms and measurement approaches.
+    I develop and validate testbeds, task environments, and assessment tools for studying human-AI
+    teams. This includes synthesized task environments, physiological and behavioral measures,
+    mixed-methods designs, and computational modeling approaches to capture team dynamics.`,
+    keywords: ["Empirical Methods", "Experimental Design", "Measurement", "Testbeds"],
+  },
+];
+
+const funding = [
+  {
+    title: "Army Research Laboratory (ARL)",
+    role: "Principal Investigator",
+    desc: "Research on human-AI teaming, trust, and collaborative intelligent systems for defense applications.",
+  },
+  {
+    title: "University of Tennessee, Knoxville",
+    role: "Internal Funding",
+    desc: "Startup funding and internal grants supporting lab establishment and early-stage research.",
+  },
+];
+---
+
+<Layout title="Research" description="Research areas of Dr. Beau G. Schelble — human-AI teaming, trust, shared mental models, and collaborative intelligent systems.">
+  <!-- ── Page hero ── -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-label">Research</p>
+      <h1 class="section-title">Research Overview</h1>
+      <p class="section-desc">
+        My research advances the science of <strong>human-AI teaming</strong> — understanding how
+        humans and intelligent systems can collaborate effectively, safely, and ethically across
+        real-world applications.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Statement ── -->
+  <section class="section">
+    <div class="container statement-grid">
+      <div>
+        <p class="section-label">Research Statement</p>
+        <h2 class="section-title" style="font-size:1.6rem;">The Human Side of AI</h2>
+        <p class="statement-para">
+          Modern AI systems are increasingly capable — but capability alone does not make an effective
+          teammate. My research investigates the human factors that determine whether humans and AI
+          systems can work together productively: trust, communication, shared understanding, and
+          adaptive coordination.
+        </p>
+        <p class="statement-para">
+          I employ empirical, mixed-methods approaches combining controlled experiments, behavioral
+          measures, computational modeling, and applied field studies. My work is grounded in cognitive
+          engineering and human factors theory, and I aim to produce both fundamental scientific
+          contributions and practical design guidance for AI system developers and operators.
+        </p>
+        <p class="statement-para">
+          Applications of this work include manufacturing, cybersecurity, emergency response,
+          healthcare, and military command and control — domains where human-AI teaming quality
+          directly affects safety and mission success.
+        </p>
+      </div>
+      <div class="statement-stats">
+        <div class="stat-box">
+          <span class="stat-big">35+</span>
+          <span class="stat-label">Peer-Reviewed Publications</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-big">$722K+</span>
+          <span class="stat-label">Research Funding (PI)</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-big">5</span>
+          <span class="stat-label">Best Paper Awards</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-big">6</span>
+          <span class="stat-label">Core Research Areas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Research areas ── -->
+  <section class="section-dark">
+    <div class="container">
+      <p class="section-label">Research Areas</p>
+      <h2 class="section-title">Core Focus Areas</h2>
+      <div class="areas-list">
+        {areas.map(area => (
+          <div class="area-item">
+            <div class="area-header">
+              <span class="area-num">{area.num}</span>
+              <div>
+                <h3 class="area-title">{area.title}</h3>
+                <p class="area-summary">{area.summary}</p>
+              </div>
+            </div>
+            <p class="area-desc">{area.desc}</p>
+            <div class="area-keywords">
+              {area.keywords.map(kw => (
+                <span class="kw-tag">{kw}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Funding ── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Funding</p>
+      <h2 class="section-title">Research Support</h2>
+      <p class="section-desc">
+        My research is supported by extramural and institutional funding totaling over $722,000 as Principal Investigator.
+      </p>
+      <div class="funding-grid">
+        {funding.map(f => (
+          <div class="card funding-card">
+            <p class="funding-role">{f.role}</p>
+            <h3 class="funding-title">{f.title}</h3>
+            <p class="funding-desc">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="section-orange">
+    <div class="container cta-center">
+      <h2 class="cta-title">Interested in Collaborating?</h2>
+      <p class="cta-desc">
+        I welcome inquiries from prospective graduate students, industry partners, and researchers
+        interested in human-AI teaming. Visit the ARCS Lab website to learn more about ongoing projects.
+      </p>
+      <div class="cta-actions">
+        <a href={`${base}/contact`} class="btn btn-outline-white">Contact Me</a>
+        <a href="https://arcslab.io" target="_blank" rel="noopener" class="btn btn-outline-white">Visit ARCS Lab ↗</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 4rem 0 3rem;
+    background: var(--light);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Statement */
+  .statement-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .statement-para {
+    font-size: 1rem;
+    color: var(--mid);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .statement-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-box {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .stat-big {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--orange);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  /* Areas */
+  .areas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 2.5rem;
+  }
+
+  .area-item {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .area-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+
+  .area-header {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .area-num {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+    padding-top: 0.2rem;
+  }
+
+  .area-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+
+  .area-summary {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.5);
+    font-style: italic;
+  }
+
+  .area-desc {
+    font-size: 0.925rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    padding-left: calc(1.5rem + 2ch);
+    margin-bottom: 1rem;
+  }
+
+  .area-keywords {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding-left: calc(1.5rem + 2ch);
+  }
+
+  .kw-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    background: rgba(255,107,0,0.15);
+    color: rgba(255,160,50,0.9);
+  }
+
+  /* Funding */
+  .funding-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+
+  .funding-role {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    margin-bottom: 0.4rem;
+  }
+
+  .funding-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .funding-desc {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* CTA */
+  .cta-center {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .statement-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .statement-stats { grid-template-columns: repeat(2, 1fr); }
+    .funding-grid { grid-template-columns: 1fr; }
+    .area-desc, .area-keywords { padding-left: 0; }
+  }
+</style>
