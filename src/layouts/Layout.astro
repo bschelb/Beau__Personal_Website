@@ -6,14 +6,12 @@ interface Props {
 
 const { title, description = "Dr. Beau G. Schelble – Assistant Professor of Industrial & Systems Engineering at the University of Tennessee, Knoxville. Researcher in human-AI teaming, trust, and collaborative systems." } = Astro.props;
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-
 const navLinks = [
-  { href: `${base}/`, label: "Home" },
-  { href: `${base}/research`, label: "Research" },
-  { href: `${base}/publications`, label: "Publications" },
-  { href: `${base}/teaching`, label: "Teaching" },
-  { href: `${base}/contact`, label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/research", label: "Research" },
+  { href: "/publications", label: "Publications" },
+  { href: "/teaching", label: "Teaching" },
+  { href: "/contact", label: "Contact" },
 ];
 ---
 
@@ -23,41 +21,55 @@ const navLinks = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{title} | Beau G. Schelble</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <header>
       <nav class="nav-container">
-        <a href={`${base}/`} class="nav-brand">
-          <span class="brand-name">Beau G. Schelble</span>
-          <span class="brand-sep">&nbsp;·&nbsp;</span>
-          <span class="brand-sub">Ph.D.</span>
+        <a href="/" class="nav-brand" aria-label="Beau G. Schelble — Home">
+          <!-- Art deco diamond mark -->
+          <svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true">
+            <rect x="3" y="3" width="30" height="30" rx="2" transform="rotate(45 18 18)" fill="var(--vermillion)"/>
+            <rect x="5.5" y="5.5" width="25" height="25" rx="1.5" transform="rotate(45 18 18)" fill="none" stroke="var(--gold)" stroke-width="1.2"/>
+            <text x="18" y="23" font-family="Georgia,serif" font-size="14" font-weight="700" fill="#FFF9F4" text-anchor="middle">B</text>
+          </svg>
+          <div class="brand-text">
+            <span class="brand-name">Beau G. Schelble</span>
+            <span class="brand-rule"></span>
+            <span class="brand-sub">Ph.D.</span>
+          </div>
         </a>
+
         <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
+
         <ul class="nav-links" id="navLinks">
           {navLinks.map(link => (
-            <li>
-              <a href={link.href} class="nav-link">{link.label}</a>
-            </li>
+            <li><a href={link.href} class="nav-link">{link.label}</a></li>
           ))}
         </ul>
       </nav>
     </header>
 
-    <main>
-      <slot />
-    </main>
+    <main><slot /></main>
 
     <footer>
       <div class="footer-inner">
+        <!-- Art deco header rule -->
+        <div class="footer-deco">
+          <span class="footer-deco-line"></span>
+          <svg viewBox="0 0 24 12" class="footer-deco-mark" aria-hidden="true">
+            <rect x="1" y="1" width="22" height="10" rx="1" transform="rotate(45 12 6)" fill="none" stroke="var(--gold)" stroke-width="0.8"/>
+            <rect x="3" y="3" width="18" height="6" rx="0.5" transform="rotate(45 12 6)" fill="none" stroke="var(--gold)" stroke-width="0.5"/>
+          </svg>
+          <span class="footer-deco-line"></span>
+        </div>
+
         <div class="footer-grid">
           <div class="footer-col">
             <p class="footer-name">Beau G. Schelble, Ph.D.</p>
@@ -67,6 +79,7 @@ const navLinks = [
             <div class="footer-social">
               <a href="https://www.linkedin.com/in/beau-schelble-ph-d-498675135/" target="_blank" rel="noopener">LinkedIn</a>
               <a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a>
+              <a href="https://www.researchgate.net" target="_blank" rel="noopener">ResearchGate</a>
               <a href="https://arcslab.io" target="_blank" rel="noopener">ARCS Lab</a>
             </div>
           </div>
@@ -83,11 +96,11 @@ const navLinks = [
             <p><a href="mailto:bschelbl@utk.edu">bschelbl@utk.edu</a></p>
             <p>515 John D. Tickle Building</p>
             <p>851 Neyland Drive</p>
-            <p>Knoxville, TN 37916</p>
+            <p>Knoxville, TN 37996</p>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Beau G. Schelble. Built with <a href="https://astro.build" target="_blank" rel="noopener">Astro</a>.</p>
+          <p>&copy; {new Date().getFullYear()} Beau G. Schelble &nbsp;·&nbsp; Built with <a href="https://astro.build" target="_blank" rel="noopener">Astro</a></p>
         </div>
       </div>
     </footer>
@@ -98,8 +111,8 @@ const navLinks = [
       toggle?.addEventListener("click", () => links?.classList.toggle("open"));
 
       const path = window.location.pathname.replace(/\/$/, "") || "/";
-      document.querySelectorAll(".nav-link").forEach(a => {
-        const href = (a as HTMLAnchorElement).getAttribute("href")?.replace(/\/$/, "") || "";
+      document.querySelectorAll<HTMLAnchorElement>(".nav-link").forEach(a => {
+        const href = a.getAttribute("href")?.replace(/\/$/, "") ?? "";
         if (href === path || (href !== "" && href !== "/" && path.startsWith(href))) {
           a.classList.add("active");
         }
@@ -109,29 +122,35 @@ const navLinks = [
 </html>
 
 <style is:global>
+  /* ── Design tokens ── */
   :root {
-    --orange: #FF6B00;
-    --orange-dark: #d95c00;
-    --orange-bg: #fff5ee;
-    --navy: #0f172a;
-    --dark: #1e293b;
-    --mid: #475569;
-    --muted: #64748b;
-    --border: #e2e8f0;
-    --light: #f8fafc;
-    --white: #ffffff;
+    --vermillion: #C53320;
+    --vermillion-dark: #A02818;
+    --vermillion-bg: #FBF0EC;
+    --gold: #B8883A;
+    --gold-light: #D4A85C;
+    --earth: #8B5E3C;
+    --earth-dark: #6B4525;
+    --earth-bg: #F5EDE0;
+    --dark: #1C0F09;
+    --mid: #4A3020;
+    --muted: #7A5E4A;
+    --border: #E2CFBC;
+    --light: #FAF5EE;
+    --cream: #FFF9F4;
+    --white: #FFFFFF;
     --max-w: 1200px;
-    --font: "Inter", system-ui, -apple-system, sans-serif;
+    --font-body: "Inter", system-ui, -apple-system, sans-serif;
+    --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: var(--font);
+    font-family: var(--font-body);
     color: var(--dark);
-    background: var(--white);
+    background: var(--cream);
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
@@ -141,8 +160,8 @@ const navLinks = [
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(255,249,244,0.96);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
 
@@ -150,7 +169,7 @@ const navLinks = [
     max-width: var(--max-w);
     margin: 0 auto;
     padding: 0 2rem;
-    height: 64px;
+    height: 68px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -160,22 +179,43 @@ const navLinks = [
   .nav-brand {
     text-decoration: none;
     display: flex;
+    align-items: center;
+    gap: 0.875rem;
+  }
+
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .brand-text {
+    display: flex;
     align-items: baseline;
+    gap: 0.5rem;
   }
 
   .brand-name {
-    font-size: 1rem;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
     color: var(--dark);
-    letter-spacing: -0.01em;
+    letter-spacing: 0.02em;
   }
 
-  .brand-sep { color: var(--muted); font-size: 0.9rem; }
+  .brand-rule {
+    display: inline-block;
+    width: 1px;
+    height: 0.9em;
+    background: var(--border);
+    vertical-align: middle;
+  }
 
   .brand-sub {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--muted);
     font-weight: 400;
+    letter-spacing: 0.05em;
   }
 
   .nav-links {
@@ -188,19 +228,16 @@ const navLinks = [
   .nav-link {
     text-decoration: none;
     color: var(--muted);
-    font-size: 0.875rem;
+    font-size: 0.825rem;
     font-weight: 500;
-    padding: 0.375rem 0.75rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 6px;
+    letter-spacing: 0.03em;
     transition: color 0.15s, background 0.15s;
   }
 
   .nav-link:hover { color: var(--dark); background: var(--light); }
-
-  .nav-link.active {
-    color: var(--orange);
-    background: var(--orange-bg);
-  }
+  .nav-link.active { color: var(--vermillion); background: var(--vermillion-bg); }
 
   .nav-toggle {
     display: none;
@@ -218,13 +255,12 @@ const navLinks = [
     height: 2px;
     background: var(--dark);
     border-radius: 2px;
-    transition: 0.2s;
   }
 
   /* ── Footer ── */
   footer {
-    background: var(--navy);
-    color: rgba(255,255,255,0.65);
+    background: var(--dark);
+    color: rgba(255,249,244,0.6);
     margin-top: auto;
   }
 
@@ -233,59 +269,81 @@ const navLinks = [
     margin: 0 auto;
   }
 
+  /* Art deco divider */
+  .footer-deco {
+    display: flex;
+    align-items: center;
+    padding: 2.5rem 2rem 0;
+    gap: 1rem;
+  }
+
+  .footer-deco-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(184,136,58,0.4));
+  }
+
+  .footer-deco-line:last-child {
+    background: linear-gradient(to left, transparent, rgba(184,136,58,0.4));
+  }
+
+  .footer-deco-mark { width: 20px; height: 20px; }
+
   .footer-grid {
-    padding: 3.5rem 2rem 2.5rem;
+    padding: 2.5rem 2rem 2rem;
     display: grid;
     grid-template-columns: 2fr 1fr 1.5fr;
     gap: 3rem;
   }
 
   .footer-name {
-    color: white;
-    font-weight: 700;
-    font-size: 1rem;
+    font-family: var(--font-display);
+    color: var(--cream);
+    font-size: 1.1rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
   }
 
-  .footer-col p { font-size: 0.875rem; line-height: 1.8; }
+  .footer-col p { font-size: 0.85rem; line-height: 1.8; }
 
   .footer-heading {
-    color: rgba(255,255,255,0.4) !important;
-    font-size: 0.7rem !important;
-    font-weight: 600;
+    color: rgba(184,136,58,0.8) !important;
+    font-size: 0.65rem !important;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 0.75rem !important;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.875rem !important;
+    line-height: 1 !important;
   }
 
   .footer-col ul { list-style: none; }
-  .footer-col ul li { margin-bottom: 0.2rem; }
+  .footer-col ul li { margin-bottom: 0.25rem; }
 
   footer a {
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,249,244,0.6);
     text-decoration: none;
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     transition: color 0.15s;
   }
 
-  footer a:hover { color: var(--orange); }
+  footer a:hover { color: var(--gold-light); }
 
   .footer-social {
     display: flex;
-    gap: 1rem;
+    gap: 1.25rem;
     margin-top: 1rem;
     flex-wrap: wrap;
   }
 
   .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255,249,244,0.08);
     padding: 1.25rem 2rem;
     text-align: center;
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.3);
+    font-size: 0.75rem;
+    color: rgba(255,249,244,0.25);
   }
 
-  /* ── Shared section styles ── */
+  /* ── Shared layout ── */
   .container {
     max-width: var(--max-w);
     margin: 0 auto;
@@ -296,41 +354,54 @@ const navLinks = [
   .section-sm { padding: 3rem 0; }
 
   .section-label {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--orange);
-    margin-bottom: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-bottom: 0.625rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 2rem;
+    background: var(--gold);
+    opacity: 0.5;
   }
 
   .section-title {
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     color: var(--dark);
     margin-bottom: 1rem;
-    line-height: 1.2;
+    line-height: 1.15;
   }
 
   .section-desc {
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--muted);
     max-width: 640px;
-    line-height: 1.7;
+    line-height: 1.75;
   }
 
   /* ── Card ── */
   .card {
-    background: white;
+    background: var(--cream);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 1.75rem;
     transition: box-shadow 0.2s, transform 0.2s;
   }
 
   .card:hover {
-    box-shadow: 0 8px 30px -8px rgba(0,0,0,0.12);
+    box-shadow: 0 6px 28px -8px rgba(28,15,9,0.12);
     transform: translateY(-2px);
   }
 
@@ -339,25 +410,26 @@ const navLinks = [
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    padding: 0.625rem 1.25rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
+    padding: 0.6rem 1.3rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
     font-weight: 600;
     text-decoration: none;
+    letter-spacing: 0.03em;
     transition: all 0.15s;
     cursor: pointer;
-    border: 2px solid transparent;
+    border: 1.5px solid transparent;
   }
 
   .btn-primary {
-    background: var(--orange);
-    color: white;
-    border-color: var(--orange);
+    background: var(--vermillion);
+    color: var(--cream);
+    border-color: var(--vermillion);
   }
 
   .btn-primary:hover {
-    background: var(--orange-dark);
-    border-color: var(--orange-dark);
+    background: var(--vermillion-dark);
+    border-color: var(--vermillion-dark);
   }
 
   .btn-outline {
@@ -371,59 +443,88 @@ const navLinks = [
     border-color: var(--muted);
   }
 
-  .btn-outline-white {
+  .btn-outline-light {
     background: transparent;
-    color: white;
-    border-color: rgba(255,255,255,0.35);
+    color: var(--cream);
+    border-color: rgba(255,249,244,0.3);
   }
 
-  .btn-outline-white:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.6);
+  .btn-outline-light:hover {
+    background: rgba(255,249,244,0.08);
+    border-color: rgba(255,249,244,0.55);
   }
 
-  /* ── Tag / Badge ── */
+  /* ── Tags ── */
   .tag {
     display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 600;
+    font-size: 0.67rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    background: var(--orange-bg);
-    color: var(--orange-dark);
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 3px;
+    background: var(--vermillion-bg);
+    color: var(--vermillion-dark);
   }
 
   .tag-award {
-    background: #fef9c3;
-    color: #854d0e;
+    background: #F5E8CC;
+    color: #7A5010;
   }
 
   /* ── Dark sections ── */
   .section-dark {
-    background: var(--navy);
-    color: rgba(255,255,255,0.8);
+    background: var(--dark);
+    color: rgba(255,249,244,0.75);
     padding: 5rem 0;
   }
 
-  .section-dark .section-title { color: white; }
-  .section-dark .section-label { color: rgba(255,165,0,0.9); }
-  .section-dark .section-desc { color: rgba(255,255,255,0.6); }
+  .section-dark .section-title { color: var(--cream); }
+  .section-dark .section-label { color: var(--gold-light); }
+  .section-dark .section-label::after { background: var(--gold-light); }
+  .section-dark .section-desc { color: rgba(255,249,244,0.55); }
 
-  .section-orange {
-    background: var(--orange);
-    color: white;
+  .section-vermillion {
+    background: var(--vermillion);
+    color: var(--cream);
     padding: 4rem 0;
   }
 
-  /* ── Fade-up animation ── */
+  .section-earth {
+    background: var(--earth-bg);
+    padding: 4.5rem 0;
+  }
+
+  /* ── Art deco rule ── */
+  .deco-rule {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .deco-rule::before, .deco-rule::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .deco-rule-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* ── Fade animation ── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .fade-up { animation: fadeUp 0.6s ease forwards; }
+  .fade-up { animation: fadeUp 0.55s ease forwards; }
 
   /* ── Mobile ── */
   @media (max-width: 768px) {
@@ -432,28 +533,23 @@ const navLinks = [
     .nav-links {
       display: none;
       position: absolute;
-      top: 64px;
+      top: 68px;
       left: 0;
       right: 0;
-      background: white;
+      background: var(--cream);
       flex-direction: column;
       padding: 0.75rem;
       border-bottom: 1px solid var(--border);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 16px rgba(28,15,9,0.08);
       gap: 0.125rem;
     }
 
     .nav-links.open { display: flex; }
     .nav-link { width: 100%; }
 
-    .footer-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .section-title { font-size: 1.6rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .section-title { font-size: 1.8rem; }
     .section { padding: 3.5rem 0; }
     .section-dark { padding: 3.5rem 0; }
-    .section-orange { padding: 3rem 0; }
   }
 </style>

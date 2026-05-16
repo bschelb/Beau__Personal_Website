@@ -1,64 +1,81 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-
 const links = [
   {
     label: "Email",
     value: "bschelbl@utk.edu",
     href: "mailto:bschelbl@utk.edu",
-    desc: "Best way to reach me for research inquiries, collaboration, or student questions.",
+    desc: "Best method for research inquiries, collaboration, or student questions.",
+    external: false,
   },
   {
     label: "LinkedIn",
     value: "linkedin.com/in/beau-schelble-ph-d",
     href: "https://www.linkedin.com/in/beau-schelble-ph-d-498675135/",
     desc: "Professional network and updates.",
+    external: true,
   },
   {
     label: "Google Scholar",
     value: "Google Scholar Profile",
     href: "https://scholar.google.com",
     desc: "Complete publication list and citation metrics.",
+    external: true,
   },
   {
     label: "ResearchGate",
     value: "ResearchGate Profile",
     href: "https://www.researchgate.net",
     desc: "Research profile and preprints.",
+    external: true,
   },
   {
     label: "ARCS Lab",
     value: "arcslab.io",
     href: "https://arcslab.io",
-    desc: "AI & Robotics for Collaborative Systems Lab at UTK.",
+    desc: "AI & Robotics for Collaborative Systems Lab website.",
+    external: true,
   },
+];
+
+const invitedTalks = [
+  { title: "Performance Optimization in Human-AI Teams", venue: "National Academies BOHSI Webinar", year: "2025" },
+  { title: "Mitigating the Risks of Compromised AI Teammates", venue: "AI on the Battlefield Workshop, West Point", year: "2025" },
+  { title: "Human-Machine Teaming Deep Dive", venue: "Technical Advisory Panel, West Point", year: "2025" },
+  { title: "Getting on the Same Page: Information-Sharing, Trust, and Ethics in Human-AI Teams", venue: "CMU AI Institute for Societal Decision Making", year: "2024" },
+  { title: "From Assistance to Autonomy: Ethical Considerations in Human-AI Teaming", venue: "University of Texas at Austin", year: "2024" },
+  { title: "Human-AI Teaming: Ethics, Trust, & Shared Knowledge", venue: "RTX, East Hartford, CT", year: "2023" },
 ];
 ---
 
 <Layout title="Contact" description="Contact Dr. Beau G. Schelble — Assistant Professor of ISE at the University of Tennessee, Knoxville.">
-  <!-- ── Page hero ── -->
+  <!-- ── Hero ── -->
   <section class="page-hero">
     <div class="container">
       <p class="section-label">Contact</p>
       <h1 class="section-title">Get in Touch</h1>
       <p class="section-desc">
         I welcome inquiries from prospective graduate students, collaborators, industry partners,
-        and members of the press. Email is the best way to reach me.
+        and members of the press. Email is always the best way to reach me.
       </p>
     </div>
   </section>
 
-  <!-- ── Contact ── -->
+  <!-- ── Contact grid ── -->
   <section class="section">
     <div class="container contact-grid">
       <!-- Left: Links -->
       <div>
-        <p class="section-label">Contact &amp; Links</p>
+        <p class="section-label">Contact &amp; Profiles</p>
         <div class="link-list">
           {links.map(link => (
-            <a href={link.href} class="link-card" target={link.href.startsWith("mailto") ? "_self" : "_blank"} rel="noopener">
+            <a
+              href={link.href}
+              class="link-card"
+              target={link.external ? "_blank" : "_self"}
+              rel={link.external ? "noopener" : undefined}
+            >
               <div class="link-label">{link.label}</div>
               <div class="link-value">{link.value}</div>
               <div class="link-desc">{link.desc}</div>
@@ -67,31 +84,40 @@ const links = [
         </div>
       </div>
 
-      <!-- Right: Location + Office -->
+      <!-- Right: Office + ARCS -->
       <div>
         <p class="section-label">Office</p>
         <div class="card office-card">
+          <div class="office-mark">
+            <!-- Art deco diamond -->
+            <svg viewBox="0 0 20 20" class="office-diamond" aria-hidden="true">
+              <rect x="2" y="2" width="16" height="16" rx="1" transform="rotate(45 10 10)" fill="var(--vermillion)" opacity="0.15"/>
+              <rect x="3.5" y="3.5" width="13" height="13" rx="0.5" transform="rotate(45 10 10)" fill="none" stroke="var(--gold)" stroke-width="0.75"/>
+            </svg>
+          </div>
           <h3 class="office-title">Dr. Beau G. Schelble</h3>
           <p class="office-role">Assistant Professor, Industrial &amp; Systems Engineering</p>
+
           <div class="office-detail">
-            <span class="office-icon">📍</span>
+            <span class="office-detail-icon">📍</span>
             <div>
-              <p class="office-detail-label">Office Location</p>
-              <p>Room 515</p>
-              <p>John D. Tickle Engineering Building</p>
+              <p class="office-detail-label">Office</p>
+              <p>Room 515, John D. Tickle Engineering Building</p>
               <p>851 Neyland Drive</p>
-              <p>Knoxville, TN 37916</p>
+              <p>Knoxville, TN 37996</p>
             </div>
           </div>
+
           <div class="office-detail">
-            <span class="office-icon">✉️</span>
+            <span class="office-detail-icon">✉️</span>
             <div>
               <p class="office-detail-label">Email</p>
-              <a href="mailto:bschelbl@utk.edu">bschelbl@utk.edu</a>
+              <a href="mailto:bschelbl@utk.edu" class="office-link">bschelbl@utk.edu</a>
             </div>
           </div>
+
           <div class="office-detail">
-            <span class="office-icon">🏛️</span>
+            <span class="office-detail-icon">🏛️</span>
             <div>
               <p class="office-detail-label">Department</p>
               <p>Industrial &amp; Systems Engineering</p>
@@ -101,7 +127,7 @@ const links = [
           </div>
         </div>
 
-        <div class="card arcs-card" style="margin-top:1.25rem;">
+        <div class="card arcs-card">
           <div class="arcs-header">
             <span class="arcs-icon">🤖</span>
             <div>
@@ -110,10 +136,9 @@ const links = [
             </div>
           </div>
           <p class="arcs-desc">
-            For inquiries about graduate positions, research opportunities, or lab collaborations,
-            please also visit the ARCS Lab website.
+            For inquiries about graduate positions or lab research, please also visit the ARCS Lab website.
           </p>
-          <a href="https://arcslab.io" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:1rem; display:inline-flex;">
+          <a href="https://arcslab.io" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:1rem;">
             Visit ARCS Lab ↗
           </a>
         </div>
@@ -121,23 +146,38 @@ const links = [
     </div>
   </section>
 
-  <!-- ── Prospective students ── -->
-  <section class="section-orange">
+  <!-- ── Invited Talks ── -->
+  <section class="section section-earth">
+    <div class="container">
+      <p class="section-label">Invited Talks</p>
+      <h2 class="section-title">Selected Presentations</h2>
+      <div class="talks-list">
+        {invitedTalks.map(talk => (
+          <div class="talk-item">
+            <span class="talk-year">{talk.year}</span>
+            <div class="talk-body">
+              <p class="talk-title">{talk.title}</p>
+              <p class="talk-venue">{talk.venue}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="section-vermillion">
     <div class="container cta-block">
       <div class="cta-text">
-        <h2 class="cta-title">Prospective Graduate Students</h2>
+        <h2 class="cta-title">Prospective Ph.D. Students</h2>
         <p class="cta-desc">
-          I am recruiting Ph.D. students with interest in human-AI teaming, trust, and cognitive
-          systems engineering. If you are motivated, curious, and want to work on meaningful
-          research at the intersection of humans and AI, please reach out with your CV and a
-          brief statement of interest.
+          I am recruiting doctoral students with interest in human-AI teaming, trust, and cognitive
+          systems engineering. Send a CV and brief statement of interest to get the conversation started.
         </p>
       </div>
-      <div class="cta-action">
-        <a href="mailto:bschelbl@utk.edu?subject=Prospective%20PhD%20Student%20Inquiry" class="btn btn-outline-white">
-          Email Me →
-        </a>
-      </div>
+      <a href="mailto:bschelbl@utk.edu?subject=Prospective%20PhD%20Student%20Inquiry" class="btn btn-outline-light">
+        Email Me →
+      </a>
     </div>
   </section>
 </Layout>
@@ -166,26 +206,27 @@ const links = [
 
   .link-card {
     display: block;
-    padding: 1.25rem 1.5rem;
+    padding: 1.1rem 1.4rem;
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 8px;
     text-decoration: none;
     transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
-    background: white;
+    background: var(--cream);
+    border-left: 3px solid var(--border);
   }
 
   .link-card:hover {
-    border-color: var(--orange);
-    box-shadow: 0 4px 16px -4px rgba(255,107,0,0.15);
-    transform: translateY(-1px);
+    border-left-color: var(--vermillion);
+    box-shadow: 0 4px 16px -4px rgba(197,51,32,0.12);
+    transform: translateX(2px);
   }
 
   .link-label {
-    font-size: 0.7rem;
-    font-weight: 700;
+    font-size: 0.65rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--orange);
+    letter-spacing: 0.18em;
+    color: var(--gold);
     margin-bottom: 0.2rem;
   }
 
@@ -197,21 +238,36 @@ const links = [
   }
 
   .link-desc {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--muted);
   }
 
   /* Office card */
-  .office-card { padding: 1.75rem; }
+  .office-card {
+    padding: 1.75rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .office-mark {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .office-diamond { width: 32px; height: 32px; }
+
   .office-title {
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
     color: var(--dark);
     margin-bottom: 0.2rem;
   }
 
   .office-role {
-    font-size: 0.825rem;
+    font-size: 0.82rem;
     color: var(--muted);
     margin-bottom: 1.25rem;
   }
@@ -219,32 +275,37 @@ const links = [
   .office-detail {
     display: flex;
     gap: 0.875rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.1rem;
     align-items: flex-start;
   }
 
   .office-detail:last-child { margin-bottom: 0; }
 
-  .office-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.05rem; }
+  .office-detail-icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
 
   .office-detail-label {
-    font-size: 0.7rem;
-    font-weight: 700;
+    font-size: 0.65rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--orange);
+    letter-spacing: 0.15em;
+    color: var(--gold);
     margin-bottom: 0.25rem;
   }
 
-  .office-detail p, .office-detail a {
-    font-size: 0.875rem;
+  .office-detail p {
+    font-size: 0.85rem;
     color: var(--mid);
-    line-height: 1.65;
-    text-decoration: none;
+    line-height: 1.6;
   }
 
-  .office-detail a { color: var(--orange); font-weight: 500; }
-  .office-detail a:hover { text-decoration: underline; }
+  .office-link {
+    font-size: 0.85rem;
+    color: var(--vermillion);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .office-link:hover { text-decoration: underline; }
 
   /* ARCS card */
   .arcs-card { padding: 1.5rem; }
@@ -259,24 +320,54 @@ const links = [
   .arcs-icon { font-size: 1.5rem; }
 
   .arcs-title {
+    font-family: var(--font-display);
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--dark);
     margin-bottom: 0.1rem;
   }
 
-  .arcs-sub {
-    font-size: 0.78rem;
+  .arcs-sub { font-size: 0.78rem; color: var(--muted); }
+
+  .arcs-desc { font-size: 0.875rem; color: var(--mid); line-height: 1.65; }
+
+  /* Invited talks */
+  .talks-list { display: flex; flex-direction: column; margin-top: 2rem; }
+
+  .talk-item {
+    display: flex;
+    gap: 2rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+  }
+
+  .talk-item:first-child { border-top: 1px solid var(--border); }
+
+  .talk-year {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--gold);
+    flex-shrink: 0;
+    letter-spacing: 0.08em;
+    width: 2.5rem;
+  }
+
+  .talk-title {
+    font-size: 0.925rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.2rem;
+    line-height: 1.4;
+  }
+
+  .talk-venue {
+    font-size: 0.82rem;
     color: var(--muted);
+    font-style: italic;
   }
 
-  .arcs-desc {
-    font-size: 0.875rem;
-    color: var(--mid);
-    line-height: 1.65;
-  }
-
-  /* CTA strip */
+  /* CTA */
   .cta-block {
     display: flex;
     align-items: center;
@@ -285,32 +376,29 @@ const links = [
     flex-wrap: wrap;
   }
 
-  .cta-text { flex: 1; min-width: 280px; }
+  .cta-text { flex: 1; min-width: 260px; }
 
   .cta-title {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: white;
-    letter-spacing: -0.03em;
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--cream);
     margin-bottom: 0.75rem;
   }
 
   .cta-desc {
     font-size: 0.95rem;
-    color: rgba(255,255,255,0.82);
+    color: rgba(255,249,244,0.8);
     line-height: 1.7;
   }
 
-  .cta-action { flex-shrink: 0; }
-
   @media (max-width: 900px) {
-    .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   }
 
   @media (max-width: 768px) {
     .cta-block { flex-direction: column; }
+    .talk-item { flex-direction: column; gap: 0.25rem; }
+    .talk-year { width: auto; }
   }
 </style>
