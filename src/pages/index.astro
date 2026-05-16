@@ -8,130 +8,100 @@ const recentPubs = [...publications]
   .slice(0, 5);
 
 const researchAreas = [
-  {
-    num: "01",
-    title: "Intelligent Information Sharing",
-    desc: "Modeling how AI teammates should communicate within teams to optimize cognition, situational awareness, and decision quality.",
-  },
-  {
-    num: "02",
-    title: "Trustworthy AI",
-    desc: "Designing transparent AI that calibrates trust appropriately, supports trust repair after violations, and integrates ethical norms.",
-  },
-  {
-    num: "03",
-    title: "Shared Mental Models",
-    desc: "Understanding how humans and AI agents develop and leverage shared knowledge structures to improve coordinated team performance.",
-  },
-  {
-    num: "04",
-    title: "Situational Awareness",
-    desc: "Investigating how AI presentation, spatial context, and teammate composition influence human perception, cognition, and decision-making.",
-  },
-  {
-    num: "05",
-    title: "Applied Human-AI Teaming",
-    desc: "Translating teaming principles to manufacturing, cybersecurity, emergency response, and command and control.",
-  },
-  {
-    num: "06",
-    title: "Evaluation & Validation",
-    desc: "Developing empirical methods and experimental paradigms to rigorously measure human-AI team performance, trust, and cognition.",
-  },
+  { num: "01", title: "Intelligent Information Sharing", desc: "Modeling how AI teammates should communicate within teams to optimize cognition, situational awareness, and decision quality." },
+  { num: "02", title: "Trustworthy AI", desc: "Designing transparent AI that calibrates trust appropriately, supports trust repair, and integrates ethical norms." },
+  { num: "03", title: "Shared Mental Models", desc: "Understanding how humans and AI develop shared knowledge structures for coordinated team performance." },
+  { num: "04", title: "Situational Awareness", desc: "Investigating how AI presentation and teammate composition influence human perception and decision-making." },
+  { num: "05", title: "Applied Human-AI Teaming", desc: "Translating teaming principles to manufacturing, cybersecurity, emergency response, and command and control." },
+  { num: "06", title: "Evaluation & Validation", desc: "Developing empirical methods and experimental paradigms to measure human-AI team performance and trust." },
 ];
 ---
 
 <Layout title="Home">
+
   <!-- ── Hero ── -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content fade-up">
-        <p class="hero-eyebrow">Assistant Professor · Industrial &amp; Systems Engineering · UTK</p>
-        <h1 class="hero-name">Dr. Beau G.<br/>Schelble</h1>
-        <div class="hero-rule">
-          <span></span><span class="hero-rule-diamond"></span><span></span>
-        </div>
+    <div class="container hero-inner">
+
+      <div class="hero-text fade-up">
+        <p class="hero-eyebrow">Human-AI Teaming · ISE · University of Tennessee</p>
+        <h1 class="hero-name">Beau G.<br/>Schelble</h1>
+        <p class="hero-degree">Ph.D. · Assistant Professor</p>
         <p class="hero-bio">
-          For nearly a decade I have studied how humans and AI systems work together effectively.
-          My research centers on <strong>human-AI teaming</strong>, <strong>trust calibration</strong>,
-          and <strong>collaborative intelligent systems engineering</strong> — advancing both the
-          fundamental science and practical design of AI teammates across high-stakes domains.
+          For nearly a decade I have studied how humans and AI systems work together
+          effectively. My research advances the science of <strong>human-AI teaming</strong> —
+          investigating trust, communication, shared mental models, and collaborative
+          intelligence across high-stakes real-world domains.
         </p>
-        <p class="hero-bio">
-          I direct the <a href="https://arcslab.io" target="_blank" rel="noopener" class="text-link">AI &amp; Robotics for Collaborative Systems (ARCS) Lab</a>
-          at the University of Tennessee, Knoxville.
+        <p class="hero-bio" style="margin-top:0.625rem;">
+          I direct the <a href="https://arcslab.io" target="_blank" rel="noopener" class="inline-link">AI &amp; Robotics for Collaborative Systems (ARCS) Lab</a> at UTK.
         </p>
         <div class="hero-actions">
-          <a href="/publications" class="btn btn-primary">View Publications</a>
+          <a href="/publications" class="btn btn-primary">Publications</a>
           <a href="/research" class="btn btn-outline">Research Areas</a>
-          <a href="https://arcslab.io" target="_blank" rel="noopener" class="btn btn-outline">ARCS Lab ↗</a>
+          <a href="/contact" class="btn btn-outline">Contact</a>
         </div>
       </div>
 
-      <div class="hero-card fade-up" style="animation-delay:0.15s">
-        <div class="profile-photo-wrap">
-          <img src="/images/profile.jpg" alt="Dr. Beau G. Schelble" class="profile-photo" />
-        </div>
-        <div class="profile-info">
-          <p class="profile-name">Beau G. Schelble, Ph.D.</p>
-          <p class="profile-role">Assistant Professor, ISE</p>
-          <p class="profile-uni">University of Tennessee, Knoxville</p>
-          <div class="deco-rule">
-            <span></span><span class="deco-rule-dot"></span><span></span>
-          </div>
-          <div class="profile-links">
-            <a href="mailto:bschelbl@utk.edu">bschelbl@utk.edu</a>
-            <a href="https://www.linkedin.com/in/beau-schelble-ph-d-498675135/" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a>
-            <a href="https://arcslab.io" target="_blank" rel="noopener">ARCS Lab</a>
-          </div>
-        </div>
+      <div class="hero-photo-col fade-up" style="animation-delay:0.12s">
+        <img
+          src="/images/profile.jpg"
+          alt="Dr. Beau G. Schelble"
+          class="hero-photo"
+        />
+        <p class="hero-photo-caption">
+          <span class="caption-name">Beau G. Schelble, Ph.D.</span>
+          <span class="caption-sep"> · </span>
+          <span>Assistant Professor, ISE · UTK</span>
+        </p>
       </div>
+
     </div>
   </section>
 
   <!-- ── Stats strip ── -->
-  <section class="section-vermillion">
+  <div class="stats-strip">
     <div class="container stats-grid">
       <div class="stat-item">
-        <span class="stat-value">40+</span>
-        <span class="stat-label">Publications</span>
+        <span class="stat-val">40+</span>
+        <span class="stat-lbl">Peer-Reviewed Works</span>
       </div>
+      <div class="stat-sep"></div>
       <div class="stat-item">
-        <span class="stat-value">$722K+</span>
-        <span class="stat-label">Research Funding (PI)</span>
+        <span class="stat-val">$722K</span>
+        <span class="stat-lbl">Research Funding (PI)</span>
       </div>
+      <div class="stat-sep"></div>
       <div class="stat-item">
-        <span class="stat-value">5</span>
-        <span class="stat-label">Best Paper Awards</span>
+        <span class="stat-val">5</span>
+        <span class="stat-lbl">Best Paper Awards</span>
       </div>
+      <div class="stat-sep"></div>
       <div class="stat-item">
-        <span class="stat-value">2</span>
-        <span class="stat-label">PhD Students</span>
+        <span class="stat-val">4</span>
+        <span class="stat-lbl">Graduate Students</span>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ── Research areas ── -->
+  <!-- ── Research areas — editorial table layout ── -->
   <section class="section">
     <div class="container">
-      <p class="section-label">01 — Research</p>
-      <h2 class="section-title">Research Interests</h2>
-      <p class="section-desc">
-        My work spans the empirical and applied study of human-AI collaboration, drawing from
-        human factors, cognitive engineering, and AI/autonomy systems.
-      </p>
-      <div class="research-grid">
+      <div class="research-hd">
+        <div>
+          <p class="section-label">Research</p>
+          <h2 class="section-title">Core Focus Areas</h2>
+        </div>
+        <a href="/research" class="btn btn-outline">Full Overview →</a>
+      </div>
+      <div class="research-list">
         {researchAreas.map(area => (
-          <div class="card research-card">
-            <span class="research-num">{area.num}</span>
-            <h3 class="research-title">{area.title}</h3>
-            <p class="research-desc">{area.desc}</p>
+          <div class="research-row">
+            <span class="rn">{area.num}</span>
+            <h3 class="rt">{area.title}</h3>
+            <p class="rd">{area.desc}</p>
           </div>
         ))}
-      </div>
-      <div style="margin-top:2.5rem;">
-        <a href="/research" class="btn btn-outline">Explore Research →</a>
       </div>
     </div>
   </section>
@@ -139,490 +109,404 @@ const researchAreas = [
   <!-- ── Recent publications ── -->
   <section class="section-dark">
     <div class="container">
-      <p class="section-label">02 — Publications</p>
-      <h2 class="section-title">Recent Work</h2>
-      <p class="section-desc">Selected from 40+ publications in Human Factors, ACM, IEEE, and HCI venues.</p>
-      <div class="pub-list">
+      <div class="pubs-hd">
+        <div>
+          <p class="section-label">Publications</p>
+          <h2 class="section-title">Recent Work</h2>
+        </div>
+        <a href="/publications" class="btn btn-outline-light">View All →</a>
+      </div>
+      <div class="pubs-list">
         {recentPubs.map(pub => (
-          <div class="pub-item">
+          <div class="pub-row">
             <div class="pub-meta">
-              <span class="pub-year">{pub.year}</span>
-              <span class={`pub-type ${pub.type}`}>{pub.type === "journal" ? "Journal" : "Conference"}</span>
-              {pub.tags.map(tag => (
-                <span class="pub-award">★ {tag}</span>
-              ))}
-              {pub.status === "in-press" && <span class="pub-status">In Press</span>}
+              <span class="pub-yr">{pub.year}</span>
+              <span class={`pub-type ${pub.type}`}>{pub.type === "journal" ? "J" : "C"}</span>
+              {pub.tags.length > 0 && <span class="pub-star">★</span>}
             </div>
-            <p class="pub-title">
+            <div class="pub-body">
               {pub.doi
-                ? <a href={pub.doi} target="_blank" rel="noopener" class="pub-link">{pub.title}</a>
-                : pub.title
+                ? <a href={pub.doi} target="_blank" rel="noopener" class="pub-title">{pub.title}</a>
+                : <p class="pub-title">{pub.title}</p>
               }
-            </p>
-            <p class="pub-venue">{pub.venue}</p>
-            <p class="pub-authors">{pub.authors}</p>
+              <p class="pub-venue">{pub.venue}</p>
+            </div>
           </div>
         ))}
-      </div>
-      <div style="margin-top:2.5rem;">
-        <a href="/publications" class="btn btn-outline-light">View All Publications →</a>
       </div>
     </div>
   </section>
 
   <!-- ── About ── -->
   <section class="section section-earth">
-    <div class="container bio-section">
-      <div class="bio-text">
-        <p class="section-label">03 — About</p>
-        <h2 class="section-title">Background</h2>
-        <p class="bio-para">
-          I am an Assistant Professor of Industrial &amp; Systems Engineering at the University of
-          Tennessee, Knoxville, and the founding director of the
-          <a href="https://arcslab.io" target="_blank" rel="noopener" class="text-link">AI &amp; Robotics for Collaborative Systems (ARCS) Lab</a>.
+    <div class="container about-grid">
+      <div class="about-text">
+        <p class="section-label">About</p>
+        <h2 class="section-title" style="font-size:2rem;">Background</h2>
+        <p class="about-para">
+          I am an Assistant Professor of ISE at the University of Tennessee, Knoxville,
+          and founding director of the
+          <a href="https://arcslab.io" target="_blank" rel="noopener" class="inline-link">AI &amp; Robotics for Collaborative Systems (ARCS) Lab</a>.
+          I received my Ph.D. in Human-Centered Computing from Clemson University (2023),
+          where I was named the Most Outstanding Graduate Student.
         </p>
-        <p class="bio-para">
-          I received my Ph.D. in Human-Centered Computing from <strong>Clemson University</strong>
-          in December 2023, where I was recognized as the Most Outstanding Graduate Student in the
-          program. I also hold a B.S. in Psychology from Clemson (Summa Cum Laude, 2018).
+        <p class="about-para">
+          My work appears in <em>Human Factors</em>, <em>ACM CSCW</em>, <em>IEEE Transactions
+          on Human-Machine Systems</em>, and <em>PNAS Nexus</em>, and has been recognized with
+          five best paper awards across ACM GROUP, ACM HAI, HICSS, and JCEDM. I serve as
+          Associate Editor, <em>ASME Journal of Autonomous Vehicles and Systems</em>.
         </p>
-        <p class="bio-para">
-          My work has been published in leading venues including <em>Human Factors</em>, <em>ACM CSCW</em>,
-          <em>IEEE Transactions on Human-Machine Systems</em>, and <em>PNAS Nexus</em>, and has been
-          recognized with five best paper awards across ACM GROUP, ACM HAI, HICSS, and JCEDM.
-          I serve as Associate Editor for the <em>ASME Journal of Autonomous Vehicles and Systems</em>.
-        </p>
-        <div style="margin-top:1.75rem; display:flex; gap:1rem; flex-wrap:wrap;">
+        <div class="about-actions">
           <a href="/contact" class="btn btn-primary">Get in Touch</a>
-          <a href="/publications" class="btn btn-outline">Publications</a>
+          <a href="/research" class="btn btn-outline">Research Overview</a>
         </div>
       </div>
-      <div class="bio-highlights">
-        <div class="highlight-item">
-          <span class="highlight-icon">🎓</span>
-          <div>
-            <p class="highlight-label">Education</p>
-            <p>Ph.D., Human-Centered Computing<br/>Clemson University, 2023</p>
-            <p style="margin-top:0.25rem;">B.S., Psychology<br/>Clemson University, 2018</p>
-          </div>
+      <div class="about-facts">
+        <div class="fact-row">
+          <p class="fact-lbl">Position</p>
+          <p>Assistant Professor, ISE<br/>University of Tennessee, Knoxville<br/><span class="fact-yr">2024–present</span></p>
         </div>
-        <div class="highlight-item">
-          <span class="highlight-icon">🏛️</span>
-          <div>
-            <p class="highlight-label">Position</p>
-            <p>Assistant Professor<br/>ISE, University of Tennessee, Knoxville<br/>(2024–present)</p>
-          </div>
+        <div class="fact-row">
+          <p class="fact-lbl">Ph.D.</p>
+          <p>Human-Centered Computing<br/>Clemson University, 2023</p>
         </div>
-        <div class="highlight-item">
-          <span class="highlight-icon">🔬</span>
-          <div>
-            <p class="highlight-label">Lab</p>
-            <p>Founding Director, ARCS Lab<br/><a href="https://arcslab.io" target="_blank" rel="noopener" class="text-link">arcslab.io</a></p>
-          </div>
+        <div class="fact-row">
+          <p class="fact-lbl">B.S.</p>
+          <p>Psychology, Summa Cum Laude<br/>Clemson University, 2018</p>
         </div>
-        <div class="highlight-item">
-          <span class="highlight-icon">📝</span>
-          <div>
-            <p class="highlight-label">Editorial Role</p>
-            <p>Associate Editor<br/>ASME Journal of Autonomous Vehicles and Systems</p>
-          </div>
+        <div class="fact-row">
+          <p class="fact-lbl">Lab</p>
+          <p>Founding Director, ARCS Lab<br/><a href="https://arcslab.io" target="_blank" rel="noopener" class="inline-link">arcslab.io</a></p>
+        </div>
+        <div class="fact-row">
+          <p class="fact-lbl">Editorial</p>
+          <p>Associate Editor<br/>ASME Journal of Autonomous Vehicles and Systems</p>
         </div>
       </div>
     </div>
   </section>
+
 </Layout>
 
 <style>
-  /* ── Hero ── */
-  .hero {
-    padding: 5rem 0 4rem;
-    background: linear-gradient(160deg, var(--light) 0%, var(--cream) 100%);
-    border-bottom: 1px solid var(--border);
-  }
+/* ── Hero ── */
+.hero {
+  padding: 5.5rem 0 5rem;
+  background: var(--light);
+  border-bottom: 1px solid var(--border);
+}
 
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 4.5rem;
-    align-items: start;
-  }
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 5rem;
+  align-items: center;
+}
 
-  .hero-eyebrow {
-    font-size: 0.67rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
+.hero-eyebrow {
+  font-size: 0.63rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+}
 
-  .hero-name {
-    font-family: var(--font-display);
-    font-size: 4rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--dark);
-    line-height: 1.05;
-    margin-bottom: 1.25rem;
-  }
+.hero-name {
+  font-family: var(--font-display);
+  font-size: 5.5rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--dark);
+  line-height: 0.95;
+  margin-bottom: 0.75rem;
+}
 
-  /* Art deco rule under name */
-  .hero-rule {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-    max-width: 280px;
-  }
+.hero-degree {
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  margin-bottom: 1.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
 
-  .hero-rule span:not(.hero-rule-diamond) {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to right, var(--gold), transparent);
-  }
+.hero-bio {
+  font-size: 1.05rem;
+  color: var(--mid);
+  line-height: 1.8;
+  max-width: 520px;
+}
 
-  .hero-rule span:last-child {
-    background: linear-gradient(to left, var(--gold), transparent);
-  }
+.inline-link {
+  color: var(--vermillion);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(207,69,32,0.3);
+  transition: border-color 0.15s;
+}
 
-  .hero-rule-diamond {
-    width: 6px;
-    height: 6px;
-    background: var(--gold);
-    transform: rotate(45deg);
-    flex: 0 !important;
-  }
+.inline-link:hover { border-color: var(--vermillion); }
 
-  .hero-bio {
-    font-size: 1rem;
-    color: var(--mid);
-    line-height: 1.8;
-    margin-bottom: 0.875rem;
-    max-width: 560px;
-  }
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2.25rem;
+  flex-wrap: wrap;
+}
 
-  .text-link {
-    color: var(--vermillion);
-    text-decoration: none;
-    font-weight: 500;
-    border-bottom: 1px solid rgba(197,51,32,0.3);
-    transition: border-color 0.15s;
-  }
+/* Photo — portrait format, art deco offset shadow */
+.hero-photo-col {
+  padding-right: 14px;
+  padding-bottom: 14px;
+}
 
-  .text-link:hover { border-color: var(--vermillion); }
+.hero-photo {
+  display: block;
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 1px solid rgba(226,207,188,0.8);
+  box-shadow: 14px 14px 0 rgba(184,136,58,0.2);
+}
 
-  .hero-actions {
-    display: flex;
-    gap: 0.75rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-  }
+.hero-photo-caption {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.875rem;
+  padding-right: 14px;
+}
 
-  /* Profile card */
-  .hero-card {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 32px -8px rgba(28,15,9,0.12);
-  }
+.caption-name { font-weight: 600; color: var(--mid); }
 
-  .profile-photo-wrap {
-    width: 100%;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    background: var(--light);
-  }
+/* ── Stats strip ── */
+.stats-strip {
+  background: var(--dark);
+  border-top: 2px solid var(--vermillion);
+}
 
-  .profile-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-  }
+.stats-grid {
+  display: flex;
+  align-items: stretch;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 
-  .profile-info {
-    padding: 1.5rem;
-    text-align: center;
-  }
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
-  .profile-name {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 1.05rem;
-    color: var(--dark);
-    margin-bottom: 0.2rem;
-  }
+.stat-val {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
 
-  .profile-role {
-    font-size: 0.82rem;
-    color: var(--muted);
-    margin-bottom: 0.1rem;
-  }
+.stat-lbl {
+  font-size: 0.67rem;
+  font-weight: 600;
+  color: rgba(255,249,244,0.42);
+  margin-top: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
 
-  .profile-uni {
-    font-size: 0.78rem;
-    color: var(--muted);
-    margin-bottom: 0.75rem;
-  }
+.stat-sep {
+  width: 1px;
+  background: rgba(255,249,244,0.09);
+  margin: 0.5rem 0;
+  flex-shrink: 0;
+}
 
-  .deco-rule {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0.75rem 0;
-  }
+/* ── Research — editorial table ── */
+.research-hd {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
 
-  .deco-rule span:not(.deco-rule-dot) {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
+.research-list { display: flex; flex-direction: column; }
 
-  .deco-rule-dot {
-    width: 5px;
-    height: 5px;
-    background: var(--gold);
-    transform: rotate(45deg);
-    flex: 0 !important;
-  }
+.research-row {
+  display: grid;
+  grid-template-columns: 3.5ch 1fr 2fr;
+  gap: 2.5rem;
+  align-items: baseline;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
 
-  .profile-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
+.rn {
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  font-variant-numeric: tabular-nums;
+}
 
-  .profile-links a {
-    font-size: 0.78rem;
-    color: var(--vermillion);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.15s;
-  }
+.rt {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.2;
+}
 
-  .profile-links a:hover { color: var(--vermillion-dark); text-decoration: underline; }
+.rd {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
 
-  /* ── Stats ── */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    text-align: center;
-  }
+/* ── Publications ── */
+.pubs-hd {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
 
-  .stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem 1rem;
-    border-right: 1px solid rgba(255,249,244,0.2);
-  }
+.pubs-list { display: flex; flex-direction: column; }
 
-  .stat-item:last-child { border-right: none; }
+.pub-row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 1.75rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255,249,244,0.07);
+  align-items: start;
+}
 
-  .stat-value {
-    font-family: var(--font-display);
-    font-size: 2.8rem;
-    font-weight: 600;
-    color: var(--cream);
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
+.pub-row:first-child { border-top: 1px solid rgba(255,249,244,0.07); }
 
-  .stat-label {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: rgba(255,249,244,0.65);
-    margin-top: 0.4rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
+.pub-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 0.15rem;
+}
 
-  /* ── Research cards ── */
-  .research-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-    margin-top: 2.5rem;
-  }
+.pub-yr {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold-light);
+}
 
-  .research-card { border-left: 3px solid var(--vermillion); border-radius: 0 10px 10px 0; }
+.pub-type {
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 0.15rem 0.4rem;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  display: inline-block;
+}
 
-  .research-num {
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 0.6rem;
-  }
+.pub-type.journal { background: rgba(207,69,32,0.2); color: #F09070; }
+.pub-type.conference { background: rgba(139,94,60,0.2); color: #D4A87A; }
 
-  .research-title {
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--dark);
-    margin-bottom: 0.5rem;
-    line-height: 1.25;
-  }
+.pub-star { font-size: 0.7rem; color: #E8C060; }
 
-  .research-desc {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.65;
-  }
+.pub-title {
+  font-size: 0.935rem;
+  font-weight: 500;
+  color: rgba(255,249,244,0.88);
+  line-height: 1.52;
+  margin-bottom: 0.4rem;
+  display: block;
+  text-decoration: none;
+  transition: color 0.15s;
+}
 
-  /* ── Publications (dark) ── */
-  .pub-list {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-direction: column;
-  }
+a.pub-title:hover { color: var(--gold-light); }
 
-  .pub-item {
-    padding: 1.5rem 0;
-    border-bottom: 1px solid rgba(255,249,244,0.07);
-  }
+.pub-venue {
+  font-size: 0.8rem;
+  color: rgba(255,249,244,0.35);
+  font-style: italic;
+}
 
-  .pub-item:first-child { border-top: 1px solid rgba(255,249,244,0.07); }
+/* ── About ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 5rem;
+  align-items: start;
+}
 
-  .pub-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    margin-bottom: 0.5rem;
-    flex-wrap: wrap;
-  }
+.about-para {
+  font-size: 0.975rem;
+  color: var(--mid);
+  line-height: 1.82;
+  margin-bottom: 1rem;
+}
 
-  .pub-year {
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--gold-light);
-  }
+.about-actions {
+  margin-top: 1.75rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
 
-  .pub-type {
-    font-size: 0.67rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 0.15rem 0.45rem;
-    border-radius: 3px;
-  }
+.about-facts { display: flex; flex-direction: column; }
 
-  .pub-type.journal { background: rgba(197,51,32,0.2); color: #F08070; }
-  .pub-type.conference { background: rgba(139,94,60,0.2); color: #D4A87A; }
+.fact-row {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
 
-  .pub-award {
-    font-size: 0.67rem;
-    font-weight: 600;
-    color: #E8C060;
-    background: rgba(232,192,96,0.12);
-    padding: 0.15rem 0.45rem;
-    border-radius: 3px;
-  }
+.fact-row:first-child { border-top: 1px solid var(--border); }
 
-  .pub-status {
-    font-size: 0.67rem;
-    font-weight: 600;
-    color: rgba(255,249,244,0.45);
-    background: rgba(255,249,244,0.06);
-    padding: 0.15rem 0.45rem;
-    border-radius: 3px;
-    font-style: italic;
-  }
+.fact-lbl {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
 
-  .pub-title {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: rgba(255,249,244,0.9);
-    line-height: 1.5;
-    margin-bottom: 0.35rem;
-  }
+.fact-row p {
+  font-size: 0.875rem;
+  color: var(--mid);
+  line-height: 1.6;
+}
 
-  .pub-link {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255,249,244,0.2);
-    transition: border-color 0.15s;
-  }
+.fact-yr { color: var(--earth); font-weight: 500; font-size: 0.82rem; }
 
-  .pub-link:hover { border-color: var(--gold-light); color: var(--gold-light); }
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .hero-name { font-size: 4.5rem; }
+  .hero-inner { grid-template-columns: 1fr 300px; gap: 3.5rem; }
+  .research-row { grid-template-columns: 3.5ch 160px 1fr; gap: 2rem; }
+}
 
-  .pub-venue {
-    font-size: 0.82rem;
-    color: rgba(255,249,244,0.45);
-    font-style: italic;
-    margin-bottom: 0.25rem;
-  }
-
-  .pub-authors {
-    font-size: 0.78rem;
-    color: rgba(255,249,244,0.3);
-  }
-
-  /* ── About/Bio ── */
-  .bio-section {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 5rem;
-    align-items: start;
-  }
-
-  .bio-para {
-    font-size: 1rem;
-    color: var(--mid);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-  }
-
-  .bio-highlights {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .highlight-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    padding: 1.25rem;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--cream);
-  }
-
-  .highlight-icon { font-size: 1.1rem; flex-shrink: 0; }
-
-  .highlight-label {
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--gold);
-    margin-bottom: 0.3rem;
-  }
-
-  .highlight-item p {
-    font-size: 0.85rem;
-    color: var(--mid);
-    line-height: 1.55;
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 1024px) {
-    .research-grid { grid-template-columns: repeat(2, 1fr); }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .stat-item { border-bottom: 1px solid rgba(255,249,244,0.15); }
-  }
-
-  @media (max-width: 768px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .hero-card { order: -1; max-width: 280px; margin: 0 auto; }
-    .hero-name { font-size: 2.8rem; }
-    .research-grid { grid-template-columns: 1fr; }
-    .bio-section { grid-template-columns: 1fr; gap: 2.5rem; }
-    .stats-grid { grid-template-columns: 1fr 1fr; }
-  }
+@media (max-width: 768px) {
+  .hero { padding: 3.5rem 0; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-photo-col { order: -1; padding-right: 0; padding-bottom: 0; }
+  .hero-photo { height: 300px; box-shadow: none; }
+  .hero-name { font-size: 3.5rem; }
+  .stats-grid { flex-wrap: wrap; }
+  .stat-sep { display: none; }
+  .stat-item { flex: 1 0 40%; padding: 0.75rem 0; }
+  .research-row { grid-template-columns: 1fr; gap: 0.35rem; }
+  .rn { display: none; }
+  .pub-row { grid-template-columns: 1fr; gap: 0.5rem; }
+  .pub-meta { flex-direction: row; align-items: center; gap: 0.5rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
 </style>
