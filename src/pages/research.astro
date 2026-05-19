@@ -4,18 +4,18 @@ import Layout from "../layouts/Layout.astro";
 const areas = [
   {
     num: "01",
-    title: "Intelligent Information Sharing",
-    summary: "Modeling how AI teammates should communicate within human-AI teams.",
-    desc: `How should AI teammates decide what to share, when to share it, and in what form? This research
-    stream investigates information-sharing strategies across different team roles, task contexts, and trust
-    conditions. I develop and validate computational models of perceived information need to improve AI
-    teammate utility and drive shared situational awareness within the team.`,
-    keywords: ["Team Cognition", "Situational Awareness", "AI Communication", "Workload"],
+    title: "Resilient & Secure Human-AI Teams",
+    summary: "Detecting and mitigating compromised, deceptive, or degraded AI teammates.",
+    desc: `How do human-AI teams maintain performance and accurate shared situation awareness when an AI
+    teammate is compromised, deceived, or degraded? This research stream develops detection methods,
+    mitigation strategies, and team-level resilience mechanisms so that teams can identify and recover
+    from adversarial or unexpected AI behavior in high-stakes environments.`,
+    keywords: ["AI Security", "Resilience", "Shared Situation Awareness", "Adversarial AI"],
   },
   {
     num: "02",
-    title: "Trustworthy AI",
-    summary: "Designing AI that calibrates trust, supports repair, and integrates ethical norms.",
+    title: "Trust Calibration & Repair",
+    summary: "Designing transparent AI that calibrates trust, supports repair, and integrates ethical norms.",
     desc: `Trust is foundational to effective human-AI collaboration. My work examines the antecedents and
     consequences of trust in AI teammates, strategies for appropriate calibration, and mechanisms for
     trust repair following violations. I also investigate how AI systems can embody ethical principles
@@ -24,8 +24,18 @@ const areas = [
   },
   {
     num: "03",
-    title: "Shared Mental Models",
-    summary: "How humans and AI develop shared knowledge structures for coordination.",
+    title: "Intelligent Information Sharing",
+    summary: "Modeling what, when, and how AI teammates should communicate to optimize team cognition.",
+    desc: `How should AI teammates decide what to share, when to share it, and in what form? This research
+    stream investigates information-sharing strategies across different team roles, task contexts, and trust
+    conditions. I develop and validate computational models of perceived information need to improve AI
+    teammate utility and drive shared situational awareness within the team.`,
+    keywords: ["Team Cognition", "Situational Awareness", "AI Communication", "Workload"],
+  },
+  {
+    num: "04",
+    title: "Shared Mental Models & Team Cognition",
+    summary: "How humans and AI build and maintain shared knowledge structures for coordinated performance.",
     desc: `Effective teamwork depends on team members sharing compatible mental models of the task,
     teammates, and situation. This research investigates how shared mental models form in human-AI teams,
     how AI agent behavior shapes these representations, and how team cognition can be engineered through
@@ -33,9 +43,9 @@ const areas = [
     keywords: ["Team Cognition", "Coordination", "Mental Models", "Collaboration"],
   },
   {
-    num: "04",
-    title: "Situational Awareness",
-    summary: "How AI presentation and context shape human perception and decision-making.",
+    num: "05",
+    title: "Situational Awareness in Mixed Teams",
+    summary: "How AI presentation and team composition shape human perception and decision-making.",
     desc: `How team members perceive their environment, teammates, and unfolding events is critical for
     adaptive performance. I examine how AI teammate presentation (anthropomorphism, role framing, spatial
     information), and teammate composition influence human situational awareness, cognitive load, and
@@ -43,24 +53,14 @@ const areas = [
     keywords: ["Perception", "Cognition", "Anthropomorphism", "Decision-Making"],
   },
   {
-    num: "05",
-    title: "Applied Human-AI Teaming",
-    summary: "Translating teaming science to manufacturing, cybersecurity, and defense.",
+    num: "06",
+    title: "Applied & Evaluated Human-AI Teaming",
+    summary: "Translating teaming theory into deployed systems with rigorous evaluation.",
     desc: `Basic science must connect to real-world impact. I translate human-AI teaming principles into
     practice across multiple high-stakes domains: advanced manufacturing, cyber threat hunting,
-    emergency response coordination, and military command and control. Each domain presents unique
-    human factors challenges that advance the broader science.`,
-    keywords: ["Manufacturing", "Cybersecurity", "Defense", "Emergency Response"],
-  },
-  {
-    num: "06",
-    title: "Evaluation & Validation",
-    summary: "Rigorous empirical methods to measure human-AI team performance and trust.",
-    desc: `Advancing the science requires robust experimental paradigms and measurement approaches. I develop
-    and validate testbeds, task environments, and assessment tools for studying human-AI teams —
-    including synthesized task environments, physiological and behavioral measures, mixed-methods
-    designs, and computational modeling of team dynamics.`,
-    keywords: ["Empirical Methods", "Experimental Design", "Measurement", "Mixed Methods"],
+    emergency response coordination, and military command and control. Rigorous testbeds, behavioral
+    and physiological measures, and mixed-methods designs validate findings across each domain.`,
+    keywords: ["Manufacturing", "Cybersecurity", "Defense", "Empirical Methods"],
   },
 ];
 

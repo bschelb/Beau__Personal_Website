@@ -1,0 +1,322 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const invitedTalks = [
+  {
+    id: "INV.7",
+    title: "Performance Optimization in Human-AI Teams",
+    venue: "National Academies of Sciences, Engineering, and Medicine — Board on Human-Systems Integration (BOHSI) Webinar",
+    location: "Virtual",
+    date: "September 2025",
+  },
+  {
+    id: "INV.6",
+    title: "Mitigating the Risks of Compromised AI Teammates",
+    venue: "AI on the Battlefield Workshop, United States Military Academy",
+    location: "West Point, NY",
+    date: "June 2025",
+  },
+  {
+    id: "INV.5",
+    title: "Human-Machine Teaming Deep Dive",
+    venue: "Technical Advisory Panel on the Use of AI Systems in Warfare, United States Military Academy",
+    location: "West Point, NY",
+    date: "February 2025",
+  },
+  {
+    id: "INV.4",
+    title: "Emerging Technologies Panel",
+    venue: "Institute of Industrial and Systems Engineers Mid-Atlantic Regional Conference",
+    location: "Knoxville, TN",
+    date: "February 2025",
+  },
+  {
+    id: "INV.3",
+    title: "Getting on the Same Page: Information-Sharing, Team Cognition, Trust, and Ethics in Human-AI Teams",
+    venue: "Carnegie Mellon University AI Institute for Societal Decision Making",
+    location: "Pittsburgh, PA",
+    date: "September 2024",
+  },
+  {
+    id: "INV.2",
+    title: "From Assistance to Autonomy: Ethical Considerations in Human-AI Teaming",
+    venue: "University of Texas at Austin",
+    location: "Austin, TX",
+    date: "September 2024",
+  },
+  {
+    id: "INV.1",
+    title: "Human-AI Teaming: Ethics, Trust, & Shared Knowledge",
+    venue: "RTX",
+    location: "East Hartford, CT",
+    date: "September 2023",
+  },
+];
+
+const confPresentations = [
+  {
+    id: "CONF.8",
+    title: "Addressing Trust Repair for AI Ethicality: The Influence of Team Role and Violation Type",
+    venue: "2023 ACM Conference on Computer-Human Interaction — Workshop on Trust and Reliance in Human-AI Teams (CHI TRAIT)",
+    date: "April 2023",
+  },
+  {
+    id: "CONF.7",
+    title: "Let's Think Together! Assessing Shared Mental Models, Performance, and Trust in Human-Agent Teams",
+    venue: "2022/23 ACM Conference on Supporting Group Work (GROUP)",
+    date: "January 2023",
+  },
+  {
+    id: "CONF.6",
+    title: "I See You: Examining the Role of Spatial Information in Human-Agent Teams",
+    venue: "25th ACM Conference on Computer-Supported Cooperative Work and Social Computing (CSCW)",
+    date: "November 2022",
+  },
+  {
+    id: "CONF.5",
+    title: "Addressing the Spread of Trust and Distrust in Distributed Human-AI Teaming Constellations",
+    venue: "2022 ACM Conference on Computer-Human Interaction — Workshop on Trust and Reliance in Human-AI Teams (CHI TRAIT)",
+    date: "April 2022",
+  },
+  {
+    id: "CONF.4",
+    title: "Reducing Bias by Prioritizing Multi-Cultural Human-Agent Teams",
+    venue: "2021 ACM Conference on Computer Supported Cooperative Work — Workshop on Human-Machine Partnerships in the Future of Work (CSCW)",
+    date: "October 2021",
+  },
+  {
+    id: "CONF.3",
+    title: "Towards Meaningfully Integrating Human-Autonomy Teaming in Applied Settings",
+    venue: "8th International Conference on Human-Agent Interaction (HAI)",
+    date: "November 2020",
+  },
+  {
+    id: "CONF.2",
+    title: "Designing Human-Autonomy Teaming Experiments Through Reinforcement Learning",
+    venue: "Annual Meeting of the Human Factors and Ergonomics Society (HFES)",
+    date: "October 2020",
+  },
+  {
+    id: "CONF.1",
+    title: "Evaluating an Intervention Plan Aimed to Improve Attention Span and Retention for Students Diagnosed with ADHD",
+    venue: "Institute of Industrial and Systems Engineers Conference",
+    date: "May 2017",
+  },
+];
+
+const programReviews = [
+  {
+    id: "PRGREV.2",
+    title: "Considerations of Ethical and Unethical Behavior on Trust in Human-Autonomy Teaming",
+    venue: "Air Force Office of Scientific Research — Trust and Influence Annual Program Review Meeting",
+    date: "September 2022",
+  },
+  {
+    id: "PRGREV.1",
+    title: "Promoting Human Interpretation and Interaction to Mitigate Bias in Artificial Intelligence",
+    venue: "Office of Naval Research Annual Program Review Meeting",
+    date: "September 2021",
+  },
+];
+---
+
+<Layout title="Talks" description="Invited talks, conference presentations, and program reviews by Dr. Beau G. Schelble on human-AI teaming, trust, and collaborative intelligent systems.">
+  <!-- ── Hero ── -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-label">Talks & Presentations</p>
+      <h1 class="section-title">Invited Talks &amp; Presentations</h1>
+      <p class="section-desc">
+        Invited lectures, conference presentations, and program reviews on human-AI teaming,
+        trust calibration, and intelligent collaborative systems.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Invited Talks ── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">01 — Invited Talks</p>
+      <h2 class="section-title">Invited Lectures &amp; Panels</h2>
+      <div class="talks-list">
+        {invitedTalks.map(talk => (
+          <div class="talk-item">
+            <div class="talk-left">
+              <span class="talk-id">{talk.id}</span>
+              <span class="talk-date">{talk.date}</span>
+            </div>
+            <div class="talk-body">
+              <p class="talk-title">{talk.title}</p>
+              <p class="talk-venue">{talk.venue}</p>
+              {talk.location && <p class="talk-location">{talk.location}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Conference Presentations ── -->
+  <section class="section section-earth">
+    <div class="container">
+      <p class="section-label">02 — Conference Presentations</p>
+      <h2 class="section-title">Conference Presentations</h2>
+      <div class="talks-list">
+        {confPresentations.map(talk => (
+          <div class="talk-item">
+            <div class="talk-left">
+              <span class="talk-id">{talk.id}</span>
+              <span class="talk-date">{talk.date}</span>
+            </div>
+            <div class="talk-body">
+              <p class="talk-title">{talk.title}</p>
+              <p class="talk-venue">{talk.venue}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Program Reviews ── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">03 — Program Reviews</p>
+      <h2 class="section-title">Government Program Reviews</h2>
+      <div class="talks-list">
+        {programReviews.map(talk => (
+          <div class="talk-item">
+            <div class="talk-left">
+              <span class="talk-id">{talk.id}</span>
+              <span class="talk-date">{talk.date}</span>
+            </div>
+            <div class="talk-body">
+              <p class="talk-title">{talk.title}</p>
+              <p class="talk-venue">{talk.venue}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="section-vermillion">
+    <div class="container cta-block">
+      <div class="cta-text">
+        <h2 class="cta-title">Invite Me to Speak</h2>
+        <p class="cta-desc">
+          I am available for invited talks, panels, and workshops on human-AI teaming,
+          trust in AI systems, and collaborative intelligent systems for academic,
+          government, and industry audiences.
+        </p>
+      </div>
+      <a href="mailto:bschelbl@utk.edu?subject=Speaking%20Invitation" class="btn btn-outline-light">
+        Get in Touch →
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 4rem 0 3rem;
+    background: var(--light);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .talks-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  .talk-item {
+    display: flex;
+    gap: 2rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+
+  .talk-item:first-child { border-top: 1px solid var(--border); }
+
+  .talk-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    flex-shrink: 0;
+    width: 6rem;
+  }
+
+  .talk-id {
+    font-size: 0.62rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+  }
+
+  .talk-date {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .talk-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--dark);
+    line-height: 1.45;
+    margin-bottom: 0.3rem;
+  }
+
+  .talk-venue {
+    font-size: 0.82rem;
+    color: var(--mid);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  .talk-location {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 0.2rem;
+  }
+
+  /* CTA */
+  .cta-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-text { flex: 1; min-width: 260px; }
+
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-desc {
+    font-size: 0.95rem;
+    color: rgba(255,249,244,0.8);
+    line-height: 1.7;
+  }
+
+  /* Earth section overrides */
+  .section-earth .talk-item { border-bottom-color: var(--border); }
+  .section-earth .talk-item:first-child { border-top-color: var(--border); }
+
+  @media (max-width: 768px) {
+    .talk-item { flex-direction: column; gap: 0.5rem; }
+    .talk-left { width: auto; flex-direction: row; align-items: center; gap: 0.75rem; }
+    .cta-block { flex-direction: column; }
+  }
+</style>

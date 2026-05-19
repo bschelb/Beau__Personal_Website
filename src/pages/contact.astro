@@ -39,14 +39,6 @@ const links = [
   },
 ];
 
-const invitedTalks = [
-  { title: "Performance Optimization in Human-AI Teams", venue: "National Academies BOHSI Webinar", year: "2025" },
-  { title: "Mitigating the Risks of Compromised AI Teammates", venue: "AI on the Battlefield Workshop, West Point", year: "2025" },
-  { title: "Human-Machine Teaming Deep Dive", venue: "Technical Advisory Panel, West Point", year: "2025" },
-  { title: "Getting on the Same Page: Information-Sharing, Trust, and Ethics in Human-AI Teams", venue: "CMU AI Institute for Societal Decision Making", year: "2024" },
-  { title: "From Assistance to Autonomy: Ethical Considerations in Human-AI Teaming", venue: "University of Texas at Austin", year: "2024" },
-  { title: "Human-AI Teaming: Ethics, Trust, & Shared Knowledge", venue: "RTX, East Hartford, CT", year: "2023" },
-];
 ---
 
 <Layout title="Contact" description="Contact Dr. Beau G. Schelble — Assistant Professor of ISE at the University of Tennessee, Knoxville.">
@@ -146,22 +138,18 @@ const invitedTalks = [
     </div>
   </section>
 
-  <!-- ── Invited Talks ── -->
+  <!-- ── Talks link ── -->
   <section class="section section-earth">
-    <div class="container">
-      <p class="section-label">Invited Talks</p>
-      <h2 class="section-title">Selected Presentations</h2>
-      <div class="talks-list">
-        {invitedTalks.map(talk => (
-          <div class="talk-item">
-            <span class="talk-year">{talk.year}</span>
-            <div class="talk-body">
-              <p class="talk-title">{talk.title}</p>
-              <p class="talk-venue">{talk.venue}</p>
-            </div>
-          </div>
-        ))}
+    <div class="container talks-cta">
+      <div>
+        <p class="section-label">Talks &amp; Presentations</p>
+        <h2 class="section-title" style="font-size:1.5rem;">Invited Lectures &amp; Conference Presentations</h2>
+        <p class="section-desc" style="max-width:560px;">
+          Seven invited talks at national labs, military institutions, and research universities —
+          plus conference presentations and government program reviews. View the full list on the Talks page.
+        </p>
       </div>
+      <a href="/talks" class="btn btn-primary" style="flex-shrink:0;">View All Talks →</a>
     </div>
   </section>
 
@@ -331,40 +319,13 @@ const invitedTalks = [
 
   .arcs-desc { font-size: 0.875rem; color: var(--mid); line-height: 1.65; }
 
-  /* Invited talks */
-  .talks-list { display: flex; flex-direction: column; margin-top: 2rem; }
-
-  .talk-item {
+  /* Talks section CTA */
+  .talks-cta {
     display: flex;
-    gap: 2rem;
-    padding: 1.1rem 0;
-    border-bottom: 1px solid var(--border);
-    align-items: baseline;
-  }
-
-  .talk-item:first-child { border-top: 1px solid var(--border); }
-
-  .talk-year {
-    font-size: 0.72rem;
-    font-weight: 800;
-    color: var(--gold);
-    flex-shrink: 0;
-    letter-spacing: 0.08em;
-    width: 2.5rem;
-  }
-
-  .talk-title {
-    font-size: 0.925rem;
-    font-weight: 600;
-    color: var(--dark);
-    margin-bottom: 0.2rem;
-    line-height: 1.4;
-  }
-
-  .talk-venue {
-    font-size: 0.82rem;
-    color: var(--muted);
-    font-style: italic;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    flex-wrap: wrap;
   }
 
   /* CTA */
@@ -398,7 +359,6 @@ const invitedTalks = [
 
   @media (max-width: 768px) {
     .cta-block { flex-direction: column; }
-    .talk-item { flex-direction: column; gap: 0.25rem; }
-    .talk-year { width: auto; }
+    .talks-cta { flex-direction: column; }
   }
 </style>
